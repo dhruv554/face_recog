@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'dbconn.apps.DbconnConfig',
     'fend.apps.FendConfig',
     'django.contrib.admin',
     'django.contrib.auth',
