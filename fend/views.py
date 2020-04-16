@@ -9,7 +9,7 @@ def home(request):
 
 
 
-def register(request):
+def signup(request):
 
         if request.method == 'POST':
             first_name = request.POST['first_name']
@@ -22,29 +22,29 @@ def register(request):
             if password == password2:
                 if User.objects.filter(username=username).exists():
                     messages.info(request,'Username is already taken!!')
-                    return redirect('register')
+                    return redirect('signup')
 
                 elif User.objects.filter(email=email).exists(): 
                     messages.info(request,'Email is already taken!!')
-                    return redirect('register')
+                    return redirect('signup')
 
                 else:
                     user = User.objects.create_user(username=username, password=password, email=email, first_name=first_name, last_name=last_name)
                     user.save()
                     print('User Created')
-                    return redirect('login')
+                    return redirect('signup')
 
             else:
                 messages.info(request,'Password not Matching..!!')
-                return redirect('register')
+                return redirect('signup')
 
         else:
-            return render(request, "register.html")
+            return render(request, "signup.html")
 
 
 
 
-def login(request):
+def signin(request):
 
         if request.method == 'POST':
             username = request.POST['username']
@@ -53,21 +53,23 @@ def login(request):
             user = auth.authenticate(username=username,password=password)
 
             if user is not None:
-                auth.login(request, user)
+                auth.signin(request, user)
                 return redirect('/')
             
             else:
                 messages.info(request,'Invalid Credentials..!!')
-                return redirect('login')
+                return redirect('signin')
 
         else:
-            return render(request, "login.html")
+            return render(request, "signin.html")
 
 
 
 
-
-
-def logout(request):
-    auth.logout(request)
+def signout(request):
+    auth.signout(request)
     return redirect('/')
+
+
+def regdetail(request):
+    return render(request,'regdetail.html')
