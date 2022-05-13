@@ -163,7 +163,7 @@ h6 {
    #BACKGROUND
    ========================================================================== */
 body{
-    background-image:url(../images/facial-recognition.jpg);
+    background-image:url('../images/facial-recognition.jpg');
     background-repeat: no-repeat;
     background-size: cover;
 }

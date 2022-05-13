@@ -36,17 +36,17 @@
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto my-2 my-lg-0">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
-          </li>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto my-2 my-lg-0">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
 
           {% if user.is_authenticated %}
 
@@ -56,13 +56,15 @@
               <li class="nav-item"> 
                 <a class="nav-link js-scroll-trigger" href="signout">signout</a>
               </li>
-          {% else %}
 
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#register">signup / signin</a>
-            </li>
+          {% else %}
             
+          <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#register">SignUp / SignIn</a>
+            </li>  
+
           {% endif %}
+
         </ul>
       </div>
     </div>
@@ -89,10 +91,10 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
-          <h2 class="text-white mt-0">Start searching people here</h2>
+          <h2 class="text-white mt-0">Search your kins here</h2>
           <hr class="divider light my-4">
           <p class="text-white-50 mb-4">
-              We've something what you need! to find someone,<br> You need to signup/signin in our portal to explore more.<br> This service is free and easy to use.
+              We've something what you need! to find someone,<br> You need to SignIn in our portal to explore more.<br> This service is free and easy to use.
           </p>
           <a class="btn btn-light btn-xl js-scroll-trigger" href="#services">Get Started!</a>
         </div>
@@ -100,86 +102,104 @@
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="page-section" id="services">
-    <div class="container">
-      <h2 class="text-center mt-0">At Your Service</h2>
-      <hr class="divider my-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-gem text-primary mb-4"></i>
-            {% if user.is_authenticated %}
-            <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#register">Register Details</a></h3>
-            {% else %}
-            <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#services">Register Details</a></h3>
-            {% endif %}
-            <p class="text-muted mb-0">Register details of lost people with their image.!</p>
+
+  {% if user.is_authenticated %}
+
+    <!-- Services Section -->
+    <section class="page-section" id="services">
+      <div class="container">
+        <h2 class="text-center mt-0">At Your Service</h2>
+        <hr class="divider my-4">
+        <div class="row justify-content-center">
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+              <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="regdetail">Register Details</a></h3>
+              <p class="text-muted mb-0">Register details of lost people with their image.!</p>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
-            <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#services">Search</a></h3>
-            <p class="text-muted mb-0">You can request for search in our database.</p>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+              <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="runsearch">Search</a></h3>
+              <p class="text-muted mb-0">You can try to search in our database.</p>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-3 col-md-6 text-center">
-          <div class="mt-5">
-            <i class="fas fa-4x fa-globe text-primary mb-4"></i>
-            <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#contact">Feedback</a></h3>
-            <p class="text-muted mb-0">We will be very happy to have your valuable feedback!</p>
+          <div class="col-lg-3 col-md-6 text-center">
+            <div class="mt-5">
+              <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+              <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#contact">Feedback</a></h3>
+              <p class="text-muted mb-0">We will be very happy to have your valuable feedback!</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
- 
+  {% else %}
+
+    <!-- Services Section -->
+    <section class="page-section" id="services">
+      <div class="container">
+        <h2 class="text-center mt-0">At Your Service</h2>
+        <p class="text-center" style="font-size:small;color:red">Please SignIn to access these services </p>
+        <hr class="divider my-4">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+                <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#services">Register Details</a></h3>
+                <p class="text-muted mb-0">Register details of lost people with their image.!</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#services">Search</a></h3>
+                <p class="text-muted mb-0">You can try to search in our database.</p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 text-center">
+              <div class="mt-5">
+                <i class="fas fa-4x fa-globe text-primary mb-4"></i>
+                <h3 class="h4 mb-2"><a class="nav-link js-scroll-trigger" href="#services">Feedback</a></h3>
+                <p class="text-muted mb-0">We will be very happy to have your valuable feedback!</p>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    
+  {% endif %}
+
+  {% if user.is_authenticated %}
+
+  {% else %}
+
   <!-- register Section -->
   <section class="page-section bg-dark text-white" id="register">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
-
-  {% if user.is_authenticated %}
-
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <h2 class="mt-0">Register Details!</h2>
-        <hr class="divider my-4">
-        <p class="mb-5"></p>
-      </div>
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-lg-8 text-center">
-        <i class="fas fa-file fa-4x mb-3 text-muted"></i>
-        <!-- Make sure to change the link below! -->
-        <a class="d-block" href="regdetail">Register now</a>
-      </div>
-    </div>
-  </div>
-
-  {% else %}
 
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-8 text-center">
           <h2 class="mt-0">Explore more!</h2>
           <hr class="divider my-4">
-          <p class="mb-5">signup / signin </p>
+          <p class="mb-5"></p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
           <i class="fas fa-folder fa-4x mb-3 text-muted"></i>
           <!-- Make sure to change the link below! -->
-          <a class="d-block" href="signin">signin</a>
+          <a class="d-block" href="signin">SignIn</a>
         </div>
         <div class="col-lg-4 mr-auto text-center">
           <i class="fas fa-file fa-4x mb-3 text-muted"></i>
           <!-- Make sure to change the link below! -->
-          <a class="d-block" href="signup">signup now</a>
+          <a class="d-block" href="signup">SignUp</a>
         </div>
       </div>
     </div>
@@ -190,13 +210,19 @@
     </div>
   </section>
 
-  
+  {% if user.is_authenticated %}
 
+    <section class="page-section bg-dark" id="contact">
+
+  {% else %}
   <!-- Contact Section -->
   <section class="page-section" id="contact">
+
+    {% endif %}
+
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8 text-center">
+        <div class="col-lg-8 text-center text-primary">
           <h2 class="mt-0">Let's Get In Touch!</h2>
           <hr class="divider my-4">
           <p class="text-muted mb-5">Do you want to ask something to us? or want to give feedback!! <br> Give us a call or send us an email and we will get back to you as soon as possible!</p>
@@ -205,7 +231,7 @@
       <div class="row">
         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
           <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div>+353 000000000</div>
+          <div class="text-primary">+353 989898989</div>
         </div>
         <div class="col-lg-4 mr-auto text-center">
           <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
